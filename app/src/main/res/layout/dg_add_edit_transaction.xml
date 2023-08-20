@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_sheet_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bk_top_radius_40"
+    android:orientation="vertical"
+    app:behavior_hideable="true"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/bk_radius_40"
+            android:contentDescription="@string/add_new_transaction"
+            android:src="@drawable/ic_twotone_transform"
+            app:tint="?android:attr/textColorPrimary" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/add_new_transaction"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="NestedWeights" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/select_account"
+                app:helperText="@string/required_field"
+                app:helperTextTextColor="@color/red"
+                app:startIconDrawable="@drawable/ic_twotone_supervisor_account_24"
+                app:startIconTint="?android:attr/textColorPrimary">
+
+                <AutoCompleteTextView
+
+                    android:id="@+id/input_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="true"
+                    android:inputType="none"
+                    android:paddingEnd="10dp"
+                    tools:ignore="LabelFor,RtlSymmetry" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom">
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+                    android:id="@+id/group_transaction_type"
+                    android:layout_width="180dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="end"
+                    android:soundEffectsEnabled="true"
+                    app:alignItems="center">
+
+
+                    <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                        android:id="@+id/btn_input_debit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        app:toggle_backgroundColor="?attr/colorSecondaryContainer"
+                        app:toggle_icon="@drawable/ic_arrow_down"
+                        app:toggle_iconPadding="5dp"
+                        app:toggle_iconPaddingTop="25dp"
+                        app:toggle_selectedBackgroundColor="?attr/colorError"
+                        app:toggle_selectedTextColor="@android:color/white"
+                        app:toggle_text="@string/debit"
+                        app:toggle_textColor="?attr/colorError"
+                        app:toggle_textGravity="top|center"
+                        app:toggle_textPaddingTop="7dp"
+                        app:toggle_textSize="16sp" />
+
+                    <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                        android:id="@+id/btn_input_credit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:toggle_backgroundColor="?attr/colorSecondaryContainer"
+                        app:toggle_icon="@drawable/ic_arrow_up"
+                        app:toggle_iconPadding="5dp"
+                        app:toggle_iconPaddingTop="25dp"
+                        app:toggle_selectedBackgroundColor="?attr/colorPrimary"
+                        app:toggle_selectedTextColor="@android:color/white"
+                        app:toggle_text="@string/credit"
+                        app:toggle_textColor="?attr/colorPrimary"
+                        app:toggle_textGravity="top|center"
+                        app:toggle_textPaddingTop="7dp"
+                        app:toggle_textSize="16sp" />
+
+
+                </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    app:endIconMode="custom"
+                    app:helperText="dd/MM/yyyy"
+                    app:prefixTextColor="?android:attr/textColorSecondary"
+                    app:startIconDrawable="@drawable/ic_calendar">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_transaction_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/date"
+                        android:inputType="date" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    app:helperText="@string/ex_Currency"
+                    app:startIconDrawable="@drawable/ic_baseline_money_24"
+                    app:startIconTint="?android:attr/textColorPrimary">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/input_currency"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:textColor="?android:attr/textColorPrimary"
+                        tools:ignore="LabelFor,RtlSymmetry" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:hint="@string/enter_amount"
+                    app:startIconDrawable="@drawable/ic_money">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_transaction_amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_description"
+                app:counterEnabled="true"
+                app:counterMaxLength="500">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_transaction_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:lines="2"
+                    android:maxLength="500"
+                    android:paddingEnd="10dp"
+                    tools:ignore="RtlSymmetry" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="12dp"
+            android:text="@string/save"
+            app:cornerRadius="40dp"
+            app:icon="@drawable/ic_accept"
+            app:strokeColor="?attr/colorPrimary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cancel"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="12dp"
+            android:text="@string/cancel"
+            android:textColor="@color/red"
+            app:cornerRadius="40dp"
+            app:icon="@drawable/ic_cancel"
+            app:iconTint="@color/red"
+            app:rippleColor="@color/red"
+            app:strokeColor="@color/red"
+            app:strokeWidth="1dp" />
+    </LinearLayout>
+</LinearLayout>

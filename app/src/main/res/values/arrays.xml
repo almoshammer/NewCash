@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="id_main_drawer_items_titles">
+        <item></item>
+        <item>@string/account_types</item>
+        <item>@string/reports</item>
+        <item></item>
+        <item>@string/settings</item>
+    </string-array>
+    <array name="id_main_drawer_items_icons">
+        <item>@drawable/ic_close</item>
+        <item>@drawable/ic_type</item>
+        <item>@drawable/ic_reports</item>
+        <item>0</item>
+        <item>@drawable/ic_settings</item>
+    </array>
+</resources>

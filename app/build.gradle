@@ -1,0 +1,95 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+
+    namespace 'com.b3to.newcash'
+    compileSdk 33
+    signingConfigs {
+        icash_sign {
+        }
+    }
+    defaultConfig {
+        applicationId "com.b3to.newcash"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+
+    def room_version = "2.5.2"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    // optional - RxJava2 support for Room
+    implementation "androidx.room:room-rxjava2:$room_version"
+
+    // optional - RxJava3 support for Room
+    implementation "androidx.room:room-rxjava3:$room_version"
+
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    implementation "androidx.room:room-guava:$room_version"
+
+    // optional - Test helpers
+    testImplementation "androidx.room:room-testing:$room_version"
+
+    // optional - Paging 3 Integration
+    implementation "androidx.room:room-paging:$room_version"
+
+    //Blur view
+    implementation 'com.github.Dimezis:BlurView:version-2.0.3'
+
+    //menu drawer
+    implementation 'com.yarolegovich:sliding-root-nav:1.1.1'
+
+    //lottie
+    def lottieVersion = "5.2.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    //switch button --com.github.angads25.toggle.widget.LabeledSwitch --how to user:https://github.com/singhangadin/android-toggle/wiki/labeledswitch
+    implementation 'com.github.angads25:toggle:1.1.0'
+
+    //themed toggle button
+    implementation 'nl.bryanderidder:themed-toggle-button-group:1.4.1' //https://github.com/Bryanx/themed-toggle-button-group
+
+    //timeAgo
+    implementation 'com.github.marlonlom:timeago:4.0.3'
+
+    //text builder
+    implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
+
+    //animation checkbox
+    implementation 'com.github.animsh:AnimatedCheckBox:1.0.0'
+
+    //room backup and restore
+    implementation 'de.raphaelebner:roomdatabasebackup:1.0.0-beta11'
+
+    //dexter for permission access
+    implementation 'com.karumi:dexter:6.2.3'
+}

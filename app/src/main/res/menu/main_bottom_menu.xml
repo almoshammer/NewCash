@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_item_dashboard"
+        android:icon="@drawable/ic_dashboard"
+        android:title="@string/dashboard" />
+    <item
+        android:id="@+id/bottom_item_accounts"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="@string/accounts" />
+
+    <item android:title="" />
+    <item
+        android:icon="@drawable/ic_twotone_transform"
+        android:id="@+id/bottom_item_transaction"
+        android:title="@string/history" />
+
+    <item
+        android:id="@+id/bottom_item_currency"
+        android:icon="@drawable/ic_baseline_money_24"
+        android:title="@string/currencies" />
+</menu>
